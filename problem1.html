@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Problem 1</title>
+  <script></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<div id="bg"></div>
+
+<header>Problem 1
+  <nav>
+    <ul>
+	  <li class="navLinks"></li
+      ><li class="navLinks"><a href="home.html">Home</a></li
+  	  ><li class="navLinks"><a href="projectEuler.html">Project Euler</a></li
+      ><li class="navLinks"><a href="langtonsAnt.html">Langton's Ant</a></li
+	  ><li class="navLinks"><a href="about.html">About</a></li
+    ></ul
+	  >
+  <div class="prevNext"></div
+  ><div class="prevNext">Previous</div><div class="prevNext"></div
+  ><div class="prevNext"></div><div class="prevNext"><a href="problem2.html">Next</a></div
+  ></nav
+></header
+><div id="paddingBox1"></div
+><body
+  ><div id="paddingBox2"></div
+  ><div id="wrapper">
+    <p><a href="https://projecteuler.net/problem=1" target="_blank">Problem 1</a></p>
+    <p>"Find the sum of all the multiples of 3 or 5 below 1000."</p
+	><div id="codeWrapper"><code>
+function init()<br>
+{<br>
+&nbsp;&nbsp;var total = 0;<br>
+&nbsp;&nbsp;for (var i = 1; i < 1000; i++)<br>	
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if(i % 3 === 0 || i % 5 === 0) { total += i; } <br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;document.getElementById("output").innerHTML += "&lt;br&gt;" + total;<br>
+}<br>
+document.addEventListener("DOMContentLoaded", init, false);
+	</code
+  ></div
+  ><p>My solution works by having a loop with a counter (the variable i) which starts at 1 and ends at 999.  I starts at 1 and every iteration checks to see if 3 or 5 is a factor.  If it is a factor the variable total is made equal to total plus i.  After all numbers greater than 0 and less than 1000 have been checked the variable total is printed.</p>
+  </div
+></body
+><div id="paddingBox1"></html>

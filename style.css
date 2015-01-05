@@ -1,0 +1,86 @@
+/* Style sheet for version 2 */
+
+html, header, nav, ul, li, #paddingBox1, body, #paddingBox2, #wrapper, code {
+   border-width:1px; padding:0px; margin:0px; border-collapse:collapse;
+}
+
+html {
+  height:102%; min-width:700px;
+}
+
+#bg {
+  background:url(http://i719.photobucket.com/albums/ww199/wrigzilla/background.jpg);
+  background-repeat:no-repeat; min-height:100%; min-width:1024px; height:100%; width:100%;
+  background-size: 100% 100%; position: fixed; top: 0; left: 0; z-index:-1; opacity:0.4;
+}
+
+header {
+  text-align:center; font: normal normal 900 2.0em/1.0em Georgia; /* color:#0047B2; */ background-color:#BFBFBF;
+}
+
+nav {
+ height:100px; background-color:#BFBFBF;
+}
+
+ul  li{
+  list-style-type:none; display:inline-block; text-align:left; font-size:0.6em;
+}
+
+li {
+  position:relative; top:100%; transform:translateY(100%);
+}
+
+.navLinks {
+  width:20%;
+}
+
+.prevNext {
+  font-size:0.3em; display:inline-block; width:20%; position:relative; top:20%; transform:translateY(20%);
+  text-align:left;
+}
+
+#paddingBox1 {
+  height:20px; min-width:700px;
+}
+
+body {
+  height:100%; min-width:700px;
+}
+
+#paddingBox2 {
+  width:20%; height:300px; float: left;
+}
+
+#wrapper {
+  width:70%; height:100%; display:inline-block; min-width:650px;
+}
+
+#codeWrapper {
+  width: 80%; background-color:white; display:inline-block; margin-left:5%; margin-top:5px; margin-bottom:25px;
+  min-width:650px;
+}
+
+code{
+  margin-top:2%; margin-left:2%; margin-right:2%; margin-bottom:2%; display:block; min-width:650px;
+}
+
+#panel {
+  margin-left:45%; padding:15px; font: normal normal 400 1.1em/1.3em Georgia;
+}
+
+p {
+  font: normal normal 400 1.1em/1.3em Georgia;margin:2%;
+}
+
+#board {
+  border:solid; border-width:10px;
+}
+
+#langton {
+  cursor: pointer;
+}
+
+a:link { color:#000099; text-decoration:none; font-style:italic; }
+a:visited  { color:#000099; }
+a:hover { color:#00CCFF; text-decoration:none; }
+a:active { color:#000099; }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Problem 2</title>
+  <script></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<div id="bg"></div>
+
+<header>Problem 2
+  <nav>
+    <ul>
+	  <li class="navLinks"></li
+      ><li class="navLinks"><a href="home.html">Home</a></li
+  	  ><li class="navLinks"><a href="projectEuler.html">Project Euler</a></li
+      ><li class="navLinks"><a href="langtonsAnt.html">Langton's Ant</a></li
+	  ><li class="navLinks"><a href="about.html">About</a></li
+    ></ul
+  >
+  <div class="prevNext"></div
+  ><div class="prevNext"><a href="problem1.html">Previous</a></div><div class="prevNext"></div
+  ><div class="prevNext"></div><div class="prevNext">Next</div
+  ></nav
+></header
+><div id="paddingBox1"></div
+><body
+  ><div id="paddingBox2"></div
+  ><div id="wrapper">
+    <p><a href="https://projecteuler.net/problem=2" target="_blank">Problem 2</a></p>
+    <p>"By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms."</p>
+<p>F<sub>n</sub> = F<sub>n-1</sub> + F<sub>n-2</sub></p>
+<p>The seed numbers for the equation are either 0, 1 or 1, 1; which one I start with will not make any difference to the answer.</p
+	><div id="codeWrapper"><code>
+	function init()<br>
+{<br>
+&nbsp;&nbsp;var total = 0, a = 1, b = 1, swap;<br>
+&nbsp;&nbsp;var output = document.getElementById("output");<br>
+
+&nbsp;&nbsp;for (var i = 0 ; i < 40000 ; i++)<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a += b ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if(a > 4000000) { break; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else if(a % 2 === 0) { total += a; }<br>	
+&nbsp;&nbsp;&nbsp;&nbsp;else {}	<br>
+&nbsp;&nbsp;&nbsp;&nbsp;swap = a; a = b; b = swap;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;output.innerHTML += total;<br>
+}<br>
+document.addEventListener("DOMContentLoaded", init, false);</code
+  ></div>
+  <p>This solution works as follows.  I have defined four variables: total, A, B and swap.  Total is used to store the sum of even Fibonacci numbers; A represents F<sub>n-2</sub> and B represents F<sub>n-1</sub>; finally swap is used to store the contents of the A variable while the values of A and B are being swapped.</p>
+<p>A and B have the seed values of 1 and 1.  This algorithm is looped and the loop starts here.  The value of A is made equal to the sum of A and B (eg so taking the seed values A = 1 + 1 = 2).  If A is greater than 4,000,000 the loop stops; otherwise it checks if a is an even number (if the remainder of dividing A by 2 = 0, then A is even).  If A is even then total = total + A, otherwise the value of total is not updated.  Once these checks are complete the contents of variables A and B are swapped around.  The loop ends if A > 4,000,000 otherwise it starts again.</p>
+  </div
+></body
+><div id="paddingBox1"></html>

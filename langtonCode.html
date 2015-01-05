@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Langton's Code</title>
+  <script></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<div id="bg"></div>
+
+<header>Langton's Code
+  <nav>
+    <ul>
+	  <li class="navLinks"></li
+      ><li class="navLinks"><a href="home.html">Home</a></li
+  	  ><li class="navLinks"><a href="projectEuler.html">Project Euler</a></li
+      ><li class="navLinks"><a href="langtonsant.html">Langton's Ant</a></li
+	  ><li class="navLinks"><a href="about.html">About</a></li
+    ></ul
+  ></nav
+></header
+><div id="paddingBox1"></div
+><body
+  ><div id="paddingBox2"></div
+  ><div id="wrapper">
+    <p>Full code</p>
+<div id="codeWrapper"><code>
+var x = 33, y = 25 ;<br>
+var direction = 'n' ;<br>
+var i = 0;<br>
+
+function stopMovement(id)<br>
+{<br>
+&nbsp;&nbsp;clearInterval(id);<br>
+}<br>
+<br>
+function antAlgorithm( canvas, ctx, squareColour, colour, panel, repeatID )<br>
+{<br>
+&nbsp;&nbsp;if ( (x < 0 || x > 119) || ( y < 0 || y > 119 ) )<br>
+&nbsp;&nbsp;{ panel.innerHTML = "  Iteration: " + i + " ...the ant has run away... "; stopMovement(repeatID); }<br>
+&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;{ <br>
+&nbsp;&nbsp;&nbsp;&nbsp;panel.innerHTML = "  Iteration: " + i ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;imgdt = ctx.getImageData( ( 5 * x ) , ( 5 * y ) , 5 , 5 ) ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;squareColour = imgdt.data[ 0 ] === 255 ? false : true ;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if ( squareColour === false )<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch( direction )<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'n' : direction = 'w' ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'e' : direction = 'n' ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 's' : direction = 'e' ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'w' : direction = 's' ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch( direction )<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'n' : direction = 'e' ;	break ;<br>		
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'e' : direction = 's' ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 's' : direction = 'w' ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'w' : direction = 'n' ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;squareColour = !squareColour ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;colour = squareColour === true ? "black" : "white" ;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ctx.fillStyle = colour ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ctx.fillRect( ( 5 * x ) , ( 5 * y ) , 5 , 5 ) ;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;switch( direction )<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'n' : y-- ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'e' : x++ ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 's' : y++ ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'w' : x-- ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;i++;<br>
+}<br>
+<br>
+function init()<br>
+{<br>
+&nbsp;&nbsp;var canvas = document.getElementById( "board" ) ;<br>
+&nbsp;&nbsp;var ctx = canvas.getContext( "2d" ) ;<br>
+&nbsp;&nbsp;var panel = document.getElementById( "panel" ) ;<br>
+&nbsp;&nbsp;var squareColour = false ;<br>
+&nbsp;&nbsp;var colour = "white" ;<br>
+&nbsp;&nbsp;ctx.fillStyle = colour ;<br>
+&nbsp;&nbsp;ctx.fillRect( 0 , 0 , 600 , 600 ) ;<br>
+<br>
+&nbsp;&nbsp;var width = document.getElementById("langton").offsetWidth;<br>
+<br>
+&nbsp;&nbsp;document.getElementById("langton").style.marginLeft = (width - 600)/2 + "px" ;<br>
+<br>
+&nbsp;&nbsp;var repeat = setInterval( function() { <br>
+&nbsp;&nbsp;antAlgorithm( canvas, ctx, squareColour, colour, panel, repeat );}, 1 ) ;<br>
+}<br>
+document.addEventListener( "DOMContentLoaded" , init , false ) ;
+	</code
+  ></div></div
+></body
+><div id="paddingBox1"></div
+></html>

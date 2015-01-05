@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Langton's Ant</title>
+  <script></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<div id="bg"></div>
+
+<header>Langton's Ant
+  <nav>
+    <ul>
+	  <li class="navLinks"></li
+      ><li class="navLinks"><a href="home.html">Home</a></li
+  	  ><li class="navLinks"><a href="projectEuler.html">Project Euler</a></li
+      ><li class="navLinks">Langton's Ant</li
+	  ><li class="navLinks"><a href="about.html">About</a></li
+    ></ul
+  ></nav
+></header
+><div id="paddingBox1"></div
+><body
+  ><div id="paddingBox2"></div
+  ><div id="wrapper">
+    <p>This is inspired by Langton's Ant (see <a href="http://en.wikipedia.org/wiki/Langton%27s_ant" target="_blank">here</a> for more details).  
+An ant moves around a board following some simple rules; if this is repeated a sufficient amount of times a pattern emerges (after 10,000 iterations).</p>
+<p>In this version the ant behaves as follows:</p>
+<p>1: Check if still on the board and throw exception message if not<br>
+2: Check the colour of the currently occupied square<br>
+3: If square is white turn left, if black turn right<br>
+4: Invert the colour of the currently occupied square<br>
+5: Move forwards one square<br>
+6: Repeat steps 1-5 ad nauseam</p>
+
+<p>Click <a href="langtonCode.html" target="_blank">here</a> to see the full code</p>
+	<h1>Representation of the Board</h1>
+	<p>The board is a 600 by 600 pixel canvas which is divided into 120 squares by 120 squares; with each square being 5 by 5 pixels.  The ant's position is stored in two variables X and Y.  The X coordinate behaves as expected (X gets larger as you move to the right); however the Y coordinate is inverted (so Y= 0 is above Y = 3) as this is the standard behaviour of the canvas object.</p>
+	<p>My previous version implemented in C++ used a two dimensional array to represent the board.  In this JavaScript version, the canvas object records the colour of each square as it is painted and thus does not need to have an array to store the square colour data.</p>
+	<p>Here you can see the code which checks to see if the ant has moved off of the 120 by 120 board.</p>
+	<div id="codeWrapper"><code>
+&nbsp;&nbsp;if ( (x < 0 || x > 119) || ( y < 0 || y > 119 ) )<br>
+&nbsp;&nbsp;{ panel.innerHTML = "  Iteration: " + i + " ...the ant has run away... "; stopMovement(repeatID); }
+	</code></div>
+	
+	<h1>How Turning is Implemented</h1>
+	<p>Having checked to see the colour of the current square (returning false if white and true if black) turning is handled by the following set of case statements.</p>
+
+	<div id="codeWrapper"><code>
+&nbsp;&nbsp;if ( squareColour === false )<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;switch( direction )<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'n' : direction = 'w' ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'e' : direction = 'n' ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 's' : direction = 'e' ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'w' : direction = 's' ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;switch( direction )<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'n' : direction = 'e' ;	break ;<br>		
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'e' : direction = 's' ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 's' : direction = 'w' ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'w' : direction = 'n' ;	break ;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}
+</code></div>
+	<p>I had previously tried using a variable to store the current direction that the ant is facing (in degrees) and then adding or subtracting 90 to turn the ant; however I felt that this method was easier to read.</p>
+	
+	<h1>Master Loop Style</h1>
+	<p>To animate the set of instructions I had originally tried a loop combined with a pause.  This however came up against two problems.   One was that I could not get enough iterations out of it before I came up against the unresponsive loop error message and the other was that it was not animating in real time.  It would pause for a while and then several steps would appear on the screen at once.  I tried to use tail recursion to get around the unresponsive script but that encountered the same problems.  The solution that solved both problems was to wrap everything in setInterval() and then clearInterval() when the loop needed to be stopped.  This solves the unresponsive script problem by calling the main function every 1 millisecond and also allows for the speed of the ant to be changed easily (perhaps a project for the future).</p>
+  </div
+></body
+><div id="paddingBox1"></div
+></html>
