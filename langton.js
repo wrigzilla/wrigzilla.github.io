@@ -58,7 +58,7 @@ function init()
 	var panel = document.getElementById( "panel" ) ;
 	var squareColour = false ; 
 	var colour = "white" ;
-	var width = document.getElementById("langton").offsetWidth;
+	var width = document.getElementById("wrapper").offsetWidth;
 	document.getElementById("langton").style.marginLeft = (width - 600)/2 + "px" ;
 	ctx.fillStyle = colour ; 
 	ctx.fillRect( 0 , 0 , 600 , 600 ) ;
