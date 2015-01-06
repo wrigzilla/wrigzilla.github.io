@@ -53,13 +53,16 @@ function antAlgorithm( canvas, ctx, squareColour, colour, panel, repeatID )
 	
 function init()
 {
+	var output = document.getElementById( "output" ) ;
 	var canvas = document.getElementById( "board" ) ;
 	var ctx = canvas.getContext( "2d" ) ;
 	var panel = document.getElementById( "panel" ) ;
 	var squareColour = false ; 
 	var colour = "white" ;
 	var width = document.getElementById("wrapper").offsetWidth;
+	output.innerHTML += width ;
 	document.getElementById("langton").style.marginLeft = (width - 600)/2 + "px" ;
+	output.innerHTML += "<br>" + (width - 600) / 2 ;
 	ctx.fillStyle = colour ; 
 	ctx.fillRect( 0 , 0 , 600 , 600 ) ;
 	var repeat = setInterval( function() {antAlgorithm( canvas, ctx, squareColour, colour, panel, repeat );}, 1 ) ;
