@@ -58,10 +58,10 @@ function init()
 	var panel = document.getElementById( "panel" ) ;
 	var squareColour = false ; 
 	var colour = "white" ;
-	ctx.fillStyle = colour ; 
-	ctx.fillRect( 0 , 0 , 600 , 600 ) ;
 	var width = document.getElementById("langton").offsetWidth;
 	document.getElementById("langton").style.marginLeft = (width - 600)/2 + "px" ;
+	ctx.fillStyle = colour ; 
+	ctx.fillRect( 0 , 0 , 600 , 600 ) ;
 	var repeat = setInterval( function() {antAlgorithm( canvas, ctx, squareColour, colour, panel, repeat );}, 1 ) ;
 }
 document.addEventListener( "DOMContentLoaded" , init , false ) ;
