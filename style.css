@@ -1,4 +1,4 @@
-/* Style sheet for version 2 */
+/* Style sheet for version wrigzilla.github.io 1.2 */
 
 html, header, nav, ul, li, #paddingBox1, body, #paddingBox2, #wrapper, code {
    border-width:1px; padding:0px; margin:0px; border-collapse:collapse;
@@ -15,11 +15,13 @@ html {
 }
 
 header {
-  text-align:center; font: normal normal 900 2.0em/1.0em Georgia; /* color:#0047B2; */ background-color:#BFBFBF;
+  text-align:center; font: normal normal 900 2.0em/1.0em Georgia; 
+  /* background-color:#BFBFBF; */
+  background: linear-gradient( #7E7E7E , #CBCBCB ); box-shadow:0px 0px 15px 25px #CBCBCB ; 
 }
 
 nav {
- height:100px; background-color:#BFBFBF;
+ height:100px;
 }
 
 ul  li{
@@ -65,7 +67,7 @@ code{
 }
 
 #panel {
-  margin-left:45%; padding:15px; font: normal normal 400 1.1em/1.3em Georgia;
+  margin-left:45%; padding:15px; font:normal normal 400 1.1em/1.3em Georgia;
 }
 
 p {
@@ -84,3 +86,11 @@ a:link { color:#000099; text-decoration:none; font-style:italic; }
 a:visited  { color:#000099; }
 a:hover { color:#00CCFF; text-decoration:none; }
 a:active { color:#000099; }
+
+.dropBox {
+  padding:10px; margin:20px;
+}
+
+select {
+  border-radius:5px; padding:5px; font:normal normal 400 0.9em/1.1em Georgia; background-color:#F0F8F8;
+}
