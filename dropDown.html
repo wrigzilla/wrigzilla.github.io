@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Home</title>
-  <script type = "text/javascript" src = "langton.js" > </script>
+  <title>Dynamic Drop Down</title>
+  <script type = "text/javascript" src = "dropDown.js" > </script>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -23,11 +23,13 @@
 ><body
   ><div id="paddingBox2"></div
   ><div id="wrapper">
-    <p>This is inspired by Langton's Ant, which is a fascinating demonstration of emergent behaviour.  An ant moves around a board of white squares following a simple set of rules.  Shortly after 10,000 iterations, an unexpected pattern occurs.</p>
-    <div id="panel"></div>
-  	<div id="langton"><a href="langtonsAnt.html"><canvas id = "board" width = "600" height = "600">[Canvas Area] </canvas></a></div>
-    <p id="para"></p
-  ></div
+    <p>Make some choices, the content of future choices is dependant upon previous choices.</p>
+	<div id="codeWrapper">
+    <div id="containter"><div class="dropBox" id="selectDiv1"></div>
+  	<div class="dropBox" id="selectDiv2"></div>
+	<div class="dropBox" id="selectDiv3"></div></div>
+	<div id="panel" ></div></div>
+    </div
 ></body
 ><div id="paddingBox1"></div
-><!--<div id="output"></div>--></html> 
+></html> 

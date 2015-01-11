@@ -14,7 +14,7 @@
 	  <li class="navLinks"></li
       ><li class="navLinks"><a href="index.html">Home</a></li
   	  ><li class="navLinks"><a href="projectEuler.html">Project Euler</a></li
-      ><li class="navLinks">Langton's Ant</li
+      ><li class="navLinks"><a href="persProj.html">My Projects</a></li
 	  ><li class="navLinks"><a href="about.html">About</a></li
     ></ul
   ></nav
@@ -33,7 +33,7 @@ An ant moves around a board following some simple rules; if this is repeated a s
 5: Move forwards one square<br>
 6: Repeat steps 1-5 ad nauseam</p>
 
-<p>Click <a href="langtonCode.html" target="_blank">here</a> to see the full code</p>
+<p>Click <a href="langtonCode.html" target="_blank">here</a> to see the full code and <a href="index.html">here</a> to see it in action.</p>
 	<h1>Representation of the Board</h1>
 	<p>The board is a 600 by 600 pixel canvas which is divided into 120 squares by 120 squares; with each square being 5 by 5 pixels.  The ant's position is stored in two variables X and Y.  The X coordinate behaves as expected (X gets larger as you move to the right); however the Y coordinate is inverted (so Y= 0 is above Y = 3) as this is the standard behaviour of the canvas object.</p>
 	<p>My previous version implemented in C++ used a two dimensional array to represent the board.  In this JavaScript version, the canvas object records the colour of each square as it is painted and thus does not need to have an array to store the square colour data.</p>
