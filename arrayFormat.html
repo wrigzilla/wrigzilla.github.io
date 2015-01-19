@@ -26,8 +26,20 @@
     <p></p>
 
 	<h1>Representation of the Board</h1>
-	<p></p>
-	<p></p>
+	<p>In the course of self teaching programming I have often found myself needing to initialize small to medium string arrays, and lets be honest typing out all of those inverted commas and standard commas gets old fast.  This project aims to create a C++ program that will open a .txt file and then format the contents to the C++/JavaScript array style:</p>
+  <div id="codeWrapper"><code>
+  var array = [ 'element one' , 'element 2' , ...  &nbsp;&nbsp;  ... , 'element n' ]
+  </code></div>
+  <p>Files to be formatted must be in the following style.  The first element of the array will be filled with the contents of the first line, the second element will be filled with the contents of the second line, etc.</p>
+  <p>This list:</p>
+  <div id="codeWrapper"><code>
+  Item one<br>Item two<br>Item three<br>Item four
+  </code></div>
+  <p>Will become</p>
+  <div id="codeWrapper"><code>
+  [ 'Item one' , 'Item two' , 'Item three' , 'Item four' ]
+  </code></div>
+  
 	<div id="codeWrapper"><code>
 int main()  <br>
 {<br>
@@ -68,6 +80,9 @@ int main()  <br>
 }
 	</code></div>
 
+	<p></p>
+  
+  <div id="codeWrapper"><code></code></div>
   </div
 ></body
 ><div id="paddingBox1"></div
