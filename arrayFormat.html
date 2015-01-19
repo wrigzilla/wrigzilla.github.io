@@ -51,8 +51,8 @@
 &nbsp;&nbsp;newLine += " ]" ;<br>
 &nbsp;&nbsp;read.close() ;<br>
   </code></div>
-  <p>Originally I had been </p>
-  
+  <p>Originally I had been appending the comma after the line from the text file which lead to the problem of the being a surplus commas after the last element.  My first attempt to fix this involved opening the filestream to read how long the .txt is and then on the last line only adding the <i>' ]</i>.  This however meant that I had to close and then open the same filestream again before I could read the .txt file.  In the end I hit upon the solution of doing a special first line out of the loop and then prepending the comma which is a more elegant solution.</p>
+  <p>Here is the full code below:</p>
 	<div id="codeWrapper"><code>
 int main()  <br>
 {<br>
@@ -92,10 +92,6 @@ int main()  <br>
 &nbsp;&nbsp;return 0 ;<br>
 }
 	</code></div>
-
-	<p></p>
-  
-  <div id="codeWrapper"><code></code></div>
   </div
 ></body
 ><div id="paddingBox1"></div
