@@ -35,10 +35,23 @@
   <div id="codeWrapper"><code>
   Item one<br>Item two<br>Item three<br>Item four
   </code></div>
-  <p>Will become</p>
+  <p>Will become:</p>
   <div id="codeWrapper"><code>
   [ 'Item one' , 'Item two' , 'Item three' , 'Item four' ]
   </code></div>
+  <p>The .txt file is opened with the ifstream object.  The formatted text will be stored in the string variable <i>newLine</i> with the array syntax being either appended or prepended to the current line.  The first line of the .txt file is read and it has <i>[ '</i> prepended to it and <i>'</i> appended to it.  The rest of the file is then read by using a for loop with the condition of not being the end of file.  Then each line until the end of the file has <i>, '</i> prepended and <i>'</i> appended.</p>
+    
+  <div id="codeWrapper"><code>
+&nbsp;&nbsp;getline( read , line ) ; newLine += "'" + line + "'" ;<br>
+&nbsp;&nbsp;for ( i = 0 ; ! read.eof() ; i++ )<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;getline( read , line ) ; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;newLine += " , '" + line + "'" ;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;newLine += " ]" ;<br>
+&nbsp;&nbsp;read.close() ;<br>
+  </code></div>
+  <p>Originally I had been </p>
   
 	<div id="codeWrapper"><code>
 int main()  <br>
