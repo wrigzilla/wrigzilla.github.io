@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Format Text File Array</title>
+  <script></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<div id="bg"></div>
+
+<header>Format Text File Array
+  <nav>
+    <ul>
+	  <li class="navLinks"></li
+      ><li class="navLinks"><a href="index.html">Home</a></li
+  	  ><li class="navLinks"><a href="projectEuler.html">Project Euler</a></li
+      ><li class="navLinks"><a href="persProj.html">My Projects</a></li
+	  ><li class="navLinks"><a href="about.html">About</a></li
+    ></ul
+  ></nav
+></header
+><div id="paddingBox1"></div
+><body
+  ><div id="paddingBox2"></div
+  ><div id="wrapper">
+    <p></p>
+
+	<h1>Representation of the Board</h1>
+	<p></p>
+	<p></p>
+	<div id="codeWrapper"><code>
+int main()  <br>
+{<br>
+&nbsp;&nbsp;string line ; int i ; string newLine = "[ " ; string newFileName ; string readFile ;<br>
+&nbsp;&nbsp;cout << "Please type the name of which file you wish to read:" << endl ; // ask file to open<br>
+&nbsp;&nbsp;getline( cin , readFile ) ;<br>
+&nbsp;&nbsp;readFile += ".txt" ;<br>
+&nbsp;&nbsp;ifstream read( readFile.c_str() ) ; // create input filestream object to read txt file.<br>
+  <br>
+&nbsp;&nbsp;if ( ! read )	// throw exception if unable to read file<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    cout << "Error Opening Input File" << endl ;	// error message<br>
+&nbsp;&nbsp;return -1 ;<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;getline( read , line ) ; newLine += "'" + line + "'" ; // first line doesn't have comma prepend<br>
+&nbsp;&nbsp;for ( i = 0 ; ! read.eof() ; i++ ) // .eof() function check to see if end of file.  Does loop while it is not the end of file.<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;    getline( read , line ) ; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;    newLine += " , '" + line + "'" ;  // appends lines from getline to newLine string<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;newLine += " ]" ;<br>
+&nbsp;&nbsp;read.close() ; //close filestream<br>
+<br>
+&nbsp;&nbsp;cout << "Please type the name of the file to be created:" << endl ; // ask file name to create<br>
+&nbsp;&nbsp;getline( cin , newFileName ) ;<br>
+&nbsp;&nbsp;newFileName += ".txt" ;<br>
+&nbsp;&nbsp;ofstream writer( newFileName.c_str() ) ; // open filestream to write to new file name array.txt <br>
+  <br>
+&nbsp;&nbsp;if ( ! writer ) // throw exception if unable to write file<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cout << "Error Opening File for Output" << endl ;<br>
+&nbsp;&nbsp;return -1 ;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;writer << newLine << endl ;  // write to file<br>
+&nbsp;&nbsp;writer.close() ;  // close filestream<br>
+&nbsp;&nbsp;return 0 ;<br>
+}
+	</code></div>
+
+  </div
+></body
+><div id="paddingBox1"></div
+></html>
