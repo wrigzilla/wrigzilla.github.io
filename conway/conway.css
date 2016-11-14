@@ -1,10 +1,10 @@
 ﻿canvas
 {
 	border: solid 1px black;
+	background-color: white;
 }
 
 #interface
 {
-	margin-left:20%;
-	background-color: white;
+	margin-left:20%;	
 }
